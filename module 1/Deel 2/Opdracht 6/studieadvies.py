@@ -2,8 +2,6 @@ from studieadviestext import *
 
 print(STUDIEDOKTER_TITEL)
 
-weken = int(input(f'{AANTAL_WEKEN_VRAAG}\n'))
-
 # vraag1 = int(input(f'{AANTAL_WEKEN_VRAAG}\n'))
 vraag1 = int(input(f'{COMPETENTIE_STELLING_1}\n{OPTIES}\n'))
 vraag2 = int(input(f'{COMPETENTIE_STELLING_2}\n{OPTIES}\n'))
