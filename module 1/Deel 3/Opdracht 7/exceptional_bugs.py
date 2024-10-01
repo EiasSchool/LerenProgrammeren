@@ -8,14 +8,10 @@ num2 = random.randint(5,15)
 number = input(f'Weet jij wat {num1} + {num2} is? ') 
 
 #geef reactie op het antwoord
-while True:
-    try:
-        if int(number) == (num1 + num2):
-            print('Dat is juist')
-            break
-        else:
-            print('Nee dat klopt niet')
-            break
-    except ValueError:
-        print('Dat is geen nummer!')
-        break
+try:
+    if int(number) == (num1 + num2):
+        print('Dat is juist')
+    else:
+        print('Nee dat klopt niet')
+except ValueError:
+    print('Dat is geen nummer!')
