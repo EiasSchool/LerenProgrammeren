@@ -1,11 +1,15 @@
 #Voornaam: Eias
 #Achternaam: Bilal
 #Opdracht: Pizza calculator
-
-#vraagt de user hoeveel pizza's hij wilt van elke afmetingen
-aantal_small_pizza = int(input('Hoeveel small pizza\'s wilt u?\n'))
-aantal_medium_pizza = int(input('Hoeveel medium pizza\'s wilt u?\n'))
-aantal_large_pizza = int(input('Hoeveel large pizza\'s wilt u?\n'))
+while True:
+    try:
+        #vraagt de user hoeveel pizza's hij wilt van elke afmetingen
+        aantal_small_pizza = int(input('Hoeveel small pizza\'s wilt u?\n'))
+        aantal_medium_pizza = int(input('Hoeveel medium pizza\'s wilt u?\n'))
+        aantal_large_pizza = int(input('Hoeveel large pizza\'s wilt u?\n'))
+        break
+    except ValueError:
+        print('Dit is geen heel nummer!')
 
 #de prijzen van elke pizza
 prijs_small = 6.99
