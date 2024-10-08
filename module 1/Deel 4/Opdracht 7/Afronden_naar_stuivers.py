@@ -1,7 +1,7 @@
 import math
 from test_lib import test, report
 
-def afronden(bedrag):
+def afronden(bedrag:float) -> float:
     stuivers = 0.05
     totaal = round(bedrag / stuivers) * stuivers
     return round(totaal, 2)
