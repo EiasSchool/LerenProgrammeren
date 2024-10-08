@@ -23,7 +23,6 @@ test_cases = [
     ('Wij werken samen en we zijn succesvol.', 0),
 ]
 
-# Run tests
 for text, expected_score in test_cases:
     sub_sentences = extract_text(text)
     calculated_score = calculate_ego_score(sub_sentences)
