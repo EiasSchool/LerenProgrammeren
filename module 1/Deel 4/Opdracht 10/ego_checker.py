@@ -17,7 +17,7 @@ def calculate_ego_score(sub_sentences: list) -> int:
 
 test_cases = [
     ('Geachte heer/mevrouw, ik ben buitengewoon slim en ik weet dat ik de beste ben.', 3),
-    ('Mijn ervaring is indrukwekkend, en ik weet dat ik goed ben.', 2),
+    ('Mijn ervaring is indrukwekkend, en ik weet dat ik goed ben.', 3),
     ('De hond is van mij, en ik zorg goed voor hem.', 1),
     ('Het bedrijf is belangrijk omdat het mijn toekomst bepaalt.', 1),
     ('Wij werken samen en we zijn succesvol.', 0),  # No "ik" or "mijn" at start
