@@ -105,6 +105,7 @@ print('Je loopt er naartoe.')
 
 if sleutel_check in player_inventory:
     print('Je hebt gewonnen en de kist geopend.')
+    player_inventory.pop('sleutel')
 else:
     print('Helaas heb je niets om de kist te openen.')
     print('Game over.')
