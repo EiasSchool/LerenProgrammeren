@@ -41,6 +41,33 @@ else:
 print('Je zie een deur achter het standbeeld.')
 print('')
 time.sleep(1)
+# === [kamer 6] === #
+zombie_attack = 1
+zombie_defense = 0
+zombie_health = 2
+
+print('Je loopt tegen een zombie aan.')
+
+zombie_hit_damage = max(zombie_attack - player_defense, 0)
+if zombie_hit_damage == 0:
+    print('Jij hebt een te goede verdediging voor de zombie, hij kan je geen schade doen.')
+else:
+    zombie_attack_amount = math.ceil(player_health / zombie_hit_damage)
+
+    player_hit_damage = max(player_attack - zombie_defense, 0)
+    player_attack_amount = math.ceil(zombie_health / player_hit_damage)
+
+    if player_attack_amount < zombie_attack_amount:
+        player_health -= zombie_hit_damage * (player_attack_amount)
+        print(f'In {player_attack_amount} rondes versla je de zombie.')
+        print(f'Je health is nu {player_health}.')
+    else:
+        print('Helaas is de zombie te sterk voor je.')
+        print('Game over.')
+        exit()
+
+print('')
+time.sleep(1)
 # === [kamer 3] === #
 def randomItem():
     item = {
@@ -52,12 +79,10 @@ def randomItem():
 
 item = randomItem()
 if item == 'schild':
-    player_inventory.append('schild')
     player_defense += 1
     effect = '+1 op je defense'
     stat = f'Je totale defense is nu: Defense = {player_defense}.'
 elif item == 'zwaard':
-    player_inventory.append('zwaard')
     player_attack += 2
     effect = '+2 op je attack'
     stat = f'Je totale attack is nu: Attack = {player_attack}.'
@@ -70,9 +95,9 @@ print('Op naar de volgende deur.')
 print('')
 time.sleep(1)
 # === [kamer 4] === #
-zombie_attack = 1
+zombie_attack = 2
 zombie_defense = 0
-zombie_health = 2
+zombie_health = 3
 
 print('Je loopt tegen een zombie aan.')
 
@@ -108,3 +133,4 @@ if sleutel_check in player_inventory:
 else:
     print('Helaas heb je niets om de kist te openen.')
     print('Game over.')
+# === [kamer 6] === #
