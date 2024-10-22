@@ -59,19 +59,7 @@ def randomItem():
 def kamer1():
     print('Door de twee grote deuren loop je een gang binnen.')
     print('Het ruikt hier muf en vochtig.')
-    while True:
-        try:
-            keuze_uit_twee_deuren = int(input('Je ziet twee deuren, welke zou je kiezen? 1) naar rechts of 2) rechtdoor\n'))
-            if keuze_uit_twee_deuren == 1:
-                kamer3()
-                break
-            elif keuze_uit_twee_deuren == 2:
-                kamer2()
-                break
-            else:
-                print('Kies een nummer (1 of 2)')
-        except ValueError:
-            print('Kies een nummer (1 of 2)')
+    print('Je ziet een deur voor je.')
     print('')
     time.sleep(1)
 
@@ -93,9 +81,21 @@ def kamer7():
                 print('Kies (ja of nee)')
         except ValueError:
             print('Kies (ja of nee)')
-        
 
-    print('Je ziet een andere deur voor je')
+    while True:
+        try:
+            keuze_uit_twee_deuren = int(input('Je ziet twee deuren, welke zou je kiezen? 1) naar rechts of 2) rechtdoor\n'))
+            if keuze_uit_twee_deuren == 1:
+                kamer3()
+                break
+            elif keuze_uit_twee_deuren == 2:
+                kamer2()
+                break
+            else:
+                print('Kies een nummer (1 of 2)')
+        except ValueError:
+            print('Kies een nummer (1 of 2)')
+
     print('')
     time.sleep(1)
 
