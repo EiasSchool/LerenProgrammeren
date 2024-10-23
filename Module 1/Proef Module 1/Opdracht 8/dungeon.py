@@ -147,7 +147,6 @@ def kamer2():
     time.sleep(1)
 
 # === [kamer 8] === #
-
 def kamer8():
     global player_rupees, player_health
     
@@ -203,6 +202,7 @@ def kamer8():
     print('Je gaat naar de volgende kamer')
     print('')
     time.sleep(1)
+
 # === [kamer 9] === #
 def kamer9():
     global player_defense, player_health
@@ -223,6 +223,7 @@ def kamer9():
     print('')
     time.sleep(1)
     kamer3()
+
 # === [kamer 3] === #
 def kamer3():
     global player_defense, player_attack, player_rupees, player_inventory
@@ -304,6 +305,7 @@ def kamer6():
         kamer8()
     elif keuze_uit_twee_deuren == '2' or keuze_uit_twee_deuren == 'tweede':
         kamer3()
+
 # === [kamer 4] === #
 def kamer4():
     print('Je loopt tegen een Ghoul aan.')
