@@ -8,7 +8,6 @@ player_defense = 0
 player_health = 3
 player_rupees = 0
 player_inventory = []
-kamer8_bezocht = False
 
 # === functions sectie === #
 #fight function voor de vijanden
