@@ -255,6 +255,7 @@ def kamer3():
                 print('Je hebt een zwaard gekocht')
                 print(f'Je totale attack is nu: Attack = {player_attack}')
             elif keuze == 'sleutel':
+                player_inventory.append('sleutel')
                 print('Je hebt een sleutel gekocht')
 
             print(f'Je hebt nu {player_rupees} rupee(s) over.')
