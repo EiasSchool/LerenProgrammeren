@@ -21,7 +21,7 @@ kamer8_bezocht = False
 kamer9_bezocht = False
 
 # === functions sectie === #
-# Fight function for the enemies
+# Fight function voor de vijanden
 def enemyBattle(player_health, player_attack, player_defense, enemy_name, enemy_attack, enemy_defense, enemy_health):
     print(f'Je komt de {enemy_name} tegen!')
 
