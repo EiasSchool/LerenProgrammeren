@@ -6,7 +6,7 @@ import operator
 player_attack = 1
 player_defense = 0
 player_health = 3
-player_rupees = 0
+player_rupees = 10
 player_inventory = []
 kamer8_bezocht = False
 
@@ -233,53 +233,49 @@ def kamer3():
     print(f'Je hebt {player_rupees} rupee(s)')
 
     items = {
-        'schild': 1,
-        'zwaard': 2,
-        'sleutel': 3
+        'schild': [1, 1],
+        'zwaard': [1, 1],
+        'sleutel': [1, 1]
     }
 
-    beschikbare_items = [item for item, cost in items.items() if player_rupees >= cost]
-    
-    if beschikbare_items:
-        print('De goblin biedt je de volgende items aan')
+    while True:
+        # List items the player can afford and are in stock
+        beschikbare_items = [item for item, (cost, stock) in items.items() if player_rupees >= cost and stock > 0]
 
-        itemNummer = 1
-        for item in beschikbare_items:
-            print(f"|{itemNummer}| {item.capitalize()} {items[item]} rupee(s) |{itemNummer}|")
-            itemNummer += 1
+        if not beschikbare_items:
+            print("Je hebt niet genoeg rupees om iets te kopen of alles is uitverkocht.")
+            break
 
-        while True:
-            try:
-                keuze = input('Wat wil je kopen? als je wilt niets kopen typ dan niets\n').lower()
+        print('De goblin biedt je de volgende items aan:')
+        for i, item in enumerate(beschikbare_items, start=1):
+            print(f"|{i}| {item.capitalize()} {items[item][0]} rupee(s) | Voorraad: {items[item][1]} |")
 
-                if keuze in beschikbare_items:
-                    player_rupees -= items[keuze]
-                    player_inventory.append(keuze)
-                    if keuze == 'schild':
-                        player_defense += 1
-                        player_inventory.append('Schild')
-                        print('Je hebt een schild gekocht')
-                        print(f'Je totale defense is nu: Defense = {player_defense}')
-                        break
-                    elif keuze == 'zwaard':
-                        player_attack += 2
-                        player_inventory.append('Zwaard')
-                        print('Je hebt een zwaard gekocht')
-                        print(f'Je totale attack is nu: Attack = {player_attack}')
-                        break
-                    elif keuze == 'sleutel':
-                        print('Je hebt een sleutel gekocht')
-                        player_inventory.append('Sleutel')
-                        break
-                elif keuze == 'niets':
-                    print('Je hebt niets van de Goblin gekocht')
-                    break
-                else:
-                    print("Ongeldige keuze kies een nummer en probeer opnieuw")
-            except ValueError:
-                print('Ongeldige keuze kies een nummer en probeer opnieuw')
-    else:
-        print("Je hebt niet genoeg rupees om iets te kopen")
+        keuze = input('Wat wil je kopen? Typ de naam van het item of "stop" om te stoppen.\n').lower()
+
+        if keuze in beschikbare_items:
+            player_rupees -= items[keuze][0]
+            items[keuze][1] -= 1
+            player_inventory.append(keuze)
+
+            if keuze == 'schild':
+                player_defense += 1
+                print('Je hebt een schild gekocht')
+                print(f'Je totale defense is nu: Defense = {player_defense}')
+            elif keuze == 'zwaard':
+                player_attack += 2
+                print('Je hebt een zwaard gekocht')
+                print(f'Je totale attack is nu: Attack = {player_attack}')
+            elif keuze == 'sleutel':
+                print('Je hebt een sleutel gekocht')
+
+            print(f'Je hebt nu {player_rupees} rupee(s) over.')
+
+        elif keuze == 'stop':
+            print('Je hebt ervoor gekozen om niet verder te kopen.')
+            break
+
+        else:
+            print("Ongeldige keuze, kies een itemnaam of typ 'stop' om te stoppen.")
 
     print('Op naar de volgende deur.')
     print('')
