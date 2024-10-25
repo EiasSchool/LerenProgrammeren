@@ -46,7 +46,7 @@ def enemyBattle(player_health, player_attack, player_defense, enemy_name, enemy_
 
     return player_health
 
-# Function for the math problem
+# Function voor de som
 def randomCalculator():
     ops = {'+': operator.add,
            '-': operator.sub,
@@ -61,7 +61,13 @@ def randomCalculator():
 # === [kamer 1] === #
 def kamer1():
     global kamer1_bezocht
+
+    if kamer1_bezocht:
+        print("Je hebt deze kamer al bezocht.")
+        return
+    
     kamer1_bezocht = True
+
     print('Door de twee grote deuren loop je een gang binnen.')
     print('Het ruikt hier muf en vochtig.')
     print('Je ziet een deur voor je.')
@@ -72,6 +78,11 @@ def kamer1():
 # === [kamer 7] === #
 def kamer7():
     global player_rupees, kamer7_bezocht
+
+    if kamer7_bezocht:
+        print("Je hebt deze kamer al bezocht.")
+        return
+
     kamer7_bezocht = True
 
     print('Je loopt naar binnen')
@@ -114,7 +125,13 @@ def kamer7():
 # === [kamer 2] === #
 def kamer2():
     global player_rupees, kamer2_bezocht
+
+    if kamer2_bezocht:
+        print("Je hebt deze kamer al bezocht.")
+        return
+    
     kamer2_bezocht = True
+
     print('Je stapt door de deur heen en je ziet een standbeeld voor je.')
     print('Het standbeeld heeft een sleutel vast.')
     print('Op zijn borst zit een numpad met de toetsen 9 t/m 0.')
@@ -132,7 +149,7 @@ def kamer2():
                 break
         except ValueError:
             print('Voer een nummer in')
-    # Choice between room 6 and 8
+    # Keuze tussen kamer 6 en 8
     while True:
         try:
             keuze_uit_twee_deuren = input('Je ziet twee deuren, welke zou je kiezen? 1) naar rechts of 2) rechtdoor\n').lower()
@@ -150,6 +167,11 @@ def kamer2():
 # === [kamer 8] === #
 def kamer8():
     global player_rupees, player_health, kamer8_bezocht
+
+    if kamer8_bezocht:
+        print("Je hebt deze kamer al bezocht.")
+        return
+    
     kamer8_bezocht = True
     
     print('Je loopt naar binnen')
@@ -209,7 +231,12 @@ def kamer8():
 def kamer9():
     global player_defense, player_health, kamer9_bezocht
 
+    if kamer9_bezocht:
+        print("Je hebt deze kamer al bezocht.")
+        return
+    
     kamer9_bezocht = True
+
     print('Je komt deze kamer binnen')
     print('Deze kamer lijkt anders dan de andere kamers')
     print('Zodra je de kamer binnenkomt voel je je powerful')
@@ -231,7 +258,12 @@ def kamer9():
 def kamer3():
     global player_defense, player_attack, player_rupees, player_inventory, kamer3_bezocht
 
+    if kamer3_bezocht:
+        print("Je hebt deze kamer al bezocht.")
+        return
+    
     kamer3_bezocht = True
+
     print('Je ziet een goblin hij lijkt vriendelijk je benadert hem')
     print(f'De goblin wil je iets verkopen')
     print(f'Je hebt {player_rupees} rupee(s)')
@@ -290,7 +322,12 @@ def kamer3():
 def kamer6():
     global player_defense, player_health, kamer6_bezocht
 
+    if kamer6_bezocht:
+        print("Je hebt deze kamer al bezocht.")
+        return
+    
     kamer6_bezocht = True
+
     print('Je loopt tegen een zombie aan.')
         
     enemy_name = 'Zombie'
@@ -313,7 +350,12 @@ def kamer6():
 def kamer4():
     global player_health, kamer4_bezocht
 
+    if kamer4_bezocht:
+        print("Je hebt deze kamer al bezocht.")
+        return
+    
     kamer4_bezocht = True
+
     print('Je loopt tegen een Ghoul aan.')
     enemy_name = 'Ghoul'
     ghoul_attack = 2
@@ -330,8 +372,13 @@ def kamer4():
 # === [kamer 5] === #
 def kamer5():
     global player_inventory, kamer5_bezocht
+
+    if kamer5_bezocht:
+        print("Je hebt deze kamer al bezocht.")
+        return
     
     kamer5_bezocht = True
+    
     sleutel_check = 'sleutel'
 
     print('Voorzichtig open je de deur, je wilt niet nog een zombie tegenkomen.')
