@@ -35,7 +35,7 @@ def enemeyBattle(player_health, player_attack, player_defense, enemy_name, enemy
 
     return player_health
 
-#function voor de som voor de sleutel
+#function voor de som
 def randomCalculator():
     ops = {'+':operator.add,
            '-':operator.sub,
@@ -46,15 +46,6 @@ def randomCalculator():
     op = random.choice(list(ops.keys()))
     antwoord = ops.get(op)(num1,num2)
     return f'{num1} {op} {num2}', antwoord
-
-#random item function
-def randomItem():
-    item = {
-        'schild': player_defense,
-        'zwaard': player_attack,
-    }
-    deItem = random.choice(list(item.keys()))
-    return deItem
 
 # === [kamer 1] === #
 def kamer1():
@@ -238,7 +229,6 @@ def kamer3():
     }
 
     while True:
-        # List items the player can afford and are in stock
         beschikbare_items = [item for item, (cost, stock) in items.items() if player_rupees >= cost and stock > 0]
 
         if not beschikbare_items:
