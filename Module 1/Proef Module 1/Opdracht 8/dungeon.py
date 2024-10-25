@@ -6,7 +6,7 @@ import operator
 player_attack = 1
 player_defense = 0
 player_health = 3
-player_rupees = 10
+player_rupees = 0
 player_inventory = []
 kamer8_bezocht = False
 
