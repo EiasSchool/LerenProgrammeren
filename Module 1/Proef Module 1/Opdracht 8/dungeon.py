@@ -197,9 +197,9 @@ def kamer8():
    
     keuze_uit_twee_deuren = input('Je ziet twee deuren in de verte welke wil je kiezen? 1) eerste 2) tweede\n').lower()
     if keuze_uit_twee_deuren == '1' or keuze_uit_twee_deuren == 'eerste':
-        kamer3()
+        return kamer3()
     elif keuze_uit_twee_deuren == '2' or keuze_uit_twee_deuren == 'tweede':
-        kamer9()
+        return kamer9()
 
     print('Je gaat naar de volgende kamer')
     print('')
