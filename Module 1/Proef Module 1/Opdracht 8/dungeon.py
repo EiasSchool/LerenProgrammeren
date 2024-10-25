@@ -1,4 +1,4 @@
-import time, math
+import time
 import random
 import operator
 
@@ -9,9 +9,20 @@ player_health = 3
 player_rupees = 0
 player_inventory = []
 
+# === kamer bezocht check === #
+kamer1_bezocht = False
+kamer2_bezocht = False
+kamer3_bezocht = False
+kamer4_bezocht = False
+kamer5_bezocht = False
+kamer6_bezocht = False
+kamer7_bezocht = False
+kamer8_bezocht = False
+kamer9_bezocht = False
+
 # === functions sectie === #
-#fight function voor de vijanden
-def enemeyBattle(player_health, player_attack, player_defense, enemy_name, enemy_attack, enemy_defense, enemy_health):
+# Fight function for the enemies
+def enemyBattle(player_health, player_attack, player_defense, enemy_name, enemy_attack, enemy_defense, enemy_health):
     print(f'Je komt de {enemy_name} tegen!')
 
     while player_health > 0 and enemy_health > 0:
@@ -35,30 +46,33 @@ def enemeyBattle(player_health, player_attack, player_defense, enemy_name, enemy
 
     return player_health
 
-#function voor de som
+# Function for the math problem
 def randomCalculator():
-    ops = {'+':operator.add,
-           '-':operator.sub,
-           '*':operator.mul
+    ops = {'+': operator.add,
+           '-': operator.sub,
+           '*': operator.mul
         }
-    num1 = random.randint(10,25)
-    num2 = random.randint(-5,75)
+    num1 = random.randint(10, 25)
+    num2 = random.randint(-5, 75)
     op = random.choice(list(ops.keys()))
-    antwoord = ops.get(op)(num1,num2)
-    return f'{num1} {op} {num2}', antwoord
+    answer = ops.get(op)(num1, num2)
+    return f'{num1} {op} {num2}', answer
 
 # === [kamer 1] === #
 def kamer1():
+    global kamer1_bezocht
+    kamer1_bezocht = True
     print('Door de twee grote deuren loop je een gang binnen.')
     print('Het ruikt hier muf en vochtig.')
     print('Je ziet een deur voor je.')
     print('')
     time.sleep(1)
-    kamer7()
+    return kamer7()
 
 # === [kamer 7] === #
 def kamer7():
-    global player_rupees
+    global player_rupees, kamer7_bezocht
+    kamer7_bezocht = True
 
     print('Je loopt naar binnen')
     print('Je ziet iets op de grond')
@@ -86,11 +100,9 @@ def kamer7():
         try:
             keuze_uit_twee_deuren = int(input('Je ziet twee deuren, welke zou je kiezen? 1) naar rechts of 2) rechtdoor\n'))
             if keuze_uit_twee_deuren == 1:
-                kamer8()
-                break
+                return kamer8()
             elif keuze_uit_twee_deuren == 2:
-                kamer2()
-                break
+                return kamer2()
             else:
                 print('Kies een nummer (1 of 2)')
         except ValueError:
@@ -101,17 +113,18 @@ def kamer7():
 
 # === [kamer 2] === #
 def kamer2():
-    global player_rupees
+    global player_rupees, kamer2_bezocht
+    kamer2_bezocht = True
     print('Je stapt door de deur heen en je ziet een standbeeld voor je.')
     print('Het standbeeld heeft een sleutel vast.')
-    print('Op zijn borst zit een numpad met de toesten 9 t/m 0.')
+    print('Op zijn borst zit een numpad met de toetsen 9 t/m 0.')
     som, juist_antwoord = randomCalculator()
     print(f'Daarboven zie je een som staan {som}')
     while True:
         try:
             antwoord = int(input('Wat toest je in?\n'))
             if antwoord == juist_antwoord:
-                print('Het stadbeeld laat een rupee vallen en je pakt het op')
+                print('Het standbeeld laat een rupee vallen en je pakt het op')
                 player_rupees += 1
                 break
             else:
@@ -119,16 +132,14 @@ def kamer2():
                 break
         except ValueError:
             print('Voer een nummer in')
-    #keuze tussen kamer 6 en 8
+    # Choice between room 6 and 8
     while True:
         try:
             keuze_uit_twee_deuren = input('Je ziet twee deuren, welke zou je kiezen? 1) naar rechts of 2) rechtdoor\n').lower()
             if keuze_uit_twee_deuren == 'rechts' or keuze_uit_twee_deuren == '1':
-                kamer8()
-                break
+                return kamer8()
             elif keuze_uit_twee_deuren == 'rechtdoor' or keuze_uit_twee_deuren == '2':
-                kamer6()
-                break
+                return kamer6()
             else:
                 print('Kies een nummer (1 of 2)')
         except ValueError:
@@ -138,7 +149,8 @@ def kamer2():
 
 # === [kamer 8] === #
 def kamer8():
-    global player_rupees, player_health
+    global player_rupees, player_health, kamer8_bezocht
+    kamer8_bezocht = True
     
     print('Je loopt naar binnen')
     print('Je ziet een gokmachine')
@@ -173,17 +185,17 @@ def kamer8():
                 elif totaal == 7:
                     player_rupees += 1
                     player_health += 4
-                    print('JACKPOT!! je heb 1 rupee en 4 health punten verdient')
+                    print('JACKPOT!! je hebt 1 rupee en 4 health punten verdiend')
                     break
             elif keuze == 'nee' or keuze == '2':
-                print('Je wilde het risico niet nemen Je kiest ervoor om niet te gokken')
+                print('Je wilde het risico niet nemen. Je kiest ervoor om niet te gokken')
                 break
             else:
                 print('Ongeldige keuze')
         except ValueError:
             print('Ongeldige keuze')
    
-    keuze_uit_twee_deuren = input('Je ziet twee duren in de verte welke wil je kiezen? 1) eerste 2) tweede\n').lower()
+    keuze_uit_twee_deuren = input('Je ziet twee deuren in de verte welke wil je kiezen? 1) eerste 2) tweede\n').lower()
     if keuze_uit_twee_deuren == '1' or keuze_uit_twee_deuren == 'eerste':
         kamer3()
     elif keuze_uit_twee_deuren == '2' or keuze_uit_twee_deuren == 'tweede':
@@ -195,8 +207,9 @@ def kamer8():
 
 # === [kamer 9] === #
 def kamer9():
-    global player_defense, player_health
+    global player_defense, player_health, kamer9_bezocht
 
+    kamer9_bezocht = True
     print('Je komt deze kamer binnen')
     print('Deze kamer lijkt anders dan de andere kamers')
     print('Zodra je de kamer binnenkomt voel je je powerful')
@@ -216,8 +229,9 @@ def kamer9():
 
 # === [kamer 3] === #
 def kamer3():
-    global player_defense, player_attack, player_rupees, player_inventory
+    global player_defense, player_attack, player_rupees, player_inventory, kamer3_bezocht
 
+    kamer3_bezocht = True
     print('Je ziet een goblin hij lijkt vriendelijk je benadert hem')
     print(f'De goblin wil je iets verkopen')
     print(f'Je hebt {player_rupees} rupee(s)')
@@ -274,6 +288,9 @@ def kamer3():
 
 # === [kamer 6] === #
 def kamer6():
+    global player_defense, player_health, kamer6_bezocht
+
+    kamer6_bezocht = True
     print('Je loopt tegen een zombie aan.')
         
     enemy_name = 'Zombie'
@@ -281,26 +298,29 @@ def kamer6():
     zombie_defense = 0
     zombie_health = 2
 
-    zombieBattle = enemeyBattle(player_health, player_attack, player_defense, enemy_name, zombie_attack, zombie_defense, zombie_health)
+    zombieBattle = enemyBattle(player_health, player_attack, player_defense, enemy_name, zombie_attack, zombie_defense, zombie_health)
+
+    keuze_uit_twee_deuren = input('Je ziet twee duren welke wil je kiezen? 1) eerste 2) tweede\n').lower()
+    if keuze_uit_twee_deuren == '1' or keuze_uit_twee_deuren == 'eerste':
+        return kamer8()
+    elif keuze_uit_twee_deuren == '2' or keuze_uit_twee_deuren == 'tweede':
+        return kamer3()
 
     print('')
     time.sleep(1)
 
-    keuze_uit_twee_deuren = input('Je ziet twee duren welke wil je kiezen? 1) eerste 2) tweede').lower
-    if keuze_uit_twee_deuren == '1' or keuze_uit_twee_deuren == 'eerste':
-        kamer8()
-    elif keuze_uit_twee_deuren == '2' or keuze_uit_twee_deuren == 'tweede':
-        kamer3()
-
 # === [kamer 4] === #
 def kamer4():
+    global player_health, kamer4_bezocht
+
+    kamer4_bezocht = True
     print('Je loopt tegen een Ghoul aan.')
     enemy_name = 'Ghoul'
     ghoul_attack = 2
     ghoul_defense = 0
     ghoul_health = 3
 
-    ghoulBattle = enemeyBattle(player_health, player_attack, player_defense, enemy_name, ghoul_attack, ghoul_defense, ghoul_health)
+    ghoulBattle = enemyBattle(player_health, player_attack, player_defense, enemy_name, ghoul_attack, ghoul_defense, ghoul_health)
 
     print('')
     time.sleep(1)
@@ -309,6 +329,9 @@ def kamer4():
 
 # === [kamer 5] === #
 def kamer5():
+    global player_inventory, kamer5_bezocht
+    
+    kamer5_bezocht = True
     sleutel_check = 'sleutel'
 
     print('Voorzichtig open je de deur, je wilt niet nog een zombie tegenkomen.')
