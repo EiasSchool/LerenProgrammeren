@@ -3,7 +3,7 @@ import random
 kleuren = ['harten', 'klaveren', 'schoppen', 'ruiten']
 rangen = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'boer', 'vrouw', 'heer', 'aas']
 
-deck = [f'{rang} van {kleur}' for rang in rangen for kleur in kleuren] + ['jocker', 'jocker']
+deck = [f'{rang} van {kleur}' for rang in rangen for kleur in kleuren] + ['joker', 'joker']
 
 random.shuffle(deck)
 
