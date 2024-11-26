@@ -17,3 +17,4 @@ color_counts = Counter(zak)
 for color, count in color_counts.items():
     print(f"{color}: {count}")
 
+print(zak)
