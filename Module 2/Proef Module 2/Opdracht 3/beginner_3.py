@@ -9,7 +9,13 @@ robotArm = RobotArm(challenges[3],0)
 # your code starts here:
 
 
-
+for i in range(5):
+    robotArm.grab()
+    for i in range(4):
+        robotArm.moveRight()
+    robotArm.drop()
+    for i in range(4):
+        robotArm.moveLeft()
 
 
 # report the results of the mission

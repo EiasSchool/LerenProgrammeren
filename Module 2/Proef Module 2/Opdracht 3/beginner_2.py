@@ -7,10 +7,20 @@ from challenges.beginner import challenges
 robotArm = RobotArm(challenges[2],0)
 
 # your code starts here:
+robotArm.moveRight()
 
+for i in range(6):
+    robotArm.grab()
+    color = robotArm.scan()
 
-
-
+    if color == 'blue':
+        robotArm.moveLeft()
+        robotArm.drop()
+        robotArm.moveRight()
+    elif color == 'green':
+        robotArm.moveRight()
+        robotArm.drop()
+        robotArm.moveLeft()
 
 # report the results of the mission
 robotArm.report()
