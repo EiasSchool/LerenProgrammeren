@@ -8,11 +8,19 @@ robotArm = RobotArm(challenges[5],0)
 
 # your code starts here:
 
+robotArm.moveRight()
+robotArm.grab()
 
+color = robotArm.scan()
+
+if color == 'red':
+    robotArm.moveLeft()
+elif color == 'yellow':
+    robotArm.moveRight()
 
 # your code ends here
 
-
+robotArm.drop()
 
 # report the results of the mission
 robotArm.report()

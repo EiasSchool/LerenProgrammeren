@@ -8,11 +8,23 @@ robotArm = RobotArm(challenges[2],0)
 
 # your code starts here:
 
-
+robotArm.moveRight()
+robotArm.grab()
+robotArm.moveLeft()
+robotArm.drop()
+robotArm.moveRight()
+robotArm.moveRight()
+robotArm.grab()
+robotArm.moveLeft()
+robotArm.drop()
 
 # your code ends here
 
-
+robotArm.moveLeft()
+robotArm.grab()
+robotArm.moveRight()
+robotArm.moveRight()
+robotArm.drop()
 
 # report the results of the mission
 robotArm.report()
