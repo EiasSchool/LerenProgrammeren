@@ -4,7 +4,7 @@ from RobotArm import RobotArm
 from challenges.basic import challenges
 
 # load the robotarm with a challenge on a level (max 3)
-robotArm = RobotArm(challenges[4],0)
+robotArm = RobotArm(challenges[5],0)
 
 # your code starts here:
 
