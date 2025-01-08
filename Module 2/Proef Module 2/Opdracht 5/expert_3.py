@@ -8,6 +8,21 @@ robotArm = RobotArm(challenges[3],0)
 
 # your code starts here:
 
+empty = robotArm.stackEmpty()
+position = 1
+
+while not robotArm.stackEmpty():
+    robotArm.grab()
+    
+    for i in range(position):
+        robotArm.moveRight()
+    
+    robotArm.drop()
+        
+    for i in range(position):
+        robotArm.moveLeft()
+    
+    position += 1
 
 
 # your code ends here

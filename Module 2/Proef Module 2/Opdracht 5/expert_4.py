@@ -8,12 +8,48 @@ robotArm = RobotArm(challenges[4],0)
 
 # your code starts here:
 
+empty = robotArm.stackEmpty()
+robotArm.grab()
 
+BluePos = 9
+GreenPos = 8
+RedPos = 7
 
-# your code ends here
+while True:
+    color = robotArm.scan()
+    position = robotArm.stackIndex()
 
-robotArm.drop()
-
+    if not empty:
+        if color == 'blue':
+            for i in range(position, BluePos):
+                robotArm.moveRight()
+            robotArm.drop()
+            for i in range((BluePos - 1) - position):
+                robotArm.moveLeft()
+                empty = robotArm.stackEmpty()
+            if not empty:
+                robotArm.grab()
+        elif color == 'green':
+            for i in range(position, GreenPos):
+                robotArm.moveRight()
+            robotArm.drop()
+            for i in range((GreenPos - 1) - position):
+                robotArm.moveLeft()
+                empty = robotArm.stackEmpty()
+            if not empty:
+                robotArm.grab()
+        elif color == 'red':
+            for i in range(position, RedPos):
+                robotArm.moveRight()
+            robotArm.drop()
+            for i in range((RedPos - 1) - position):
+                robotArm.moveLeft()
+                empty = robotArm.stackEmpty()
+            if not empty:
+                robotArm.grab()
+    else:
+        break
+        
 # report the results of the mission
 robotArm.report()
 
