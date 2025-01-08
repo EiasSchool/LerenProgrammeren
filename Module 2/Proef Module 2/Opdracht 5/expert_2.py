@@ -31,8 +31,6 @@ while not empty:
         else:
             break
 
-# your code ends here
-
 # report the results of the mission
 robotArm.report()
 

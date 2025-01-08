@@ -24,11 +24,6 @@ while not robotArm.stackEmpty():
     
     position += 1
 
-
-# your code ends here
-
-robotArm.drop()
-
 # report the results of the mission
 robotArm.report()
 
