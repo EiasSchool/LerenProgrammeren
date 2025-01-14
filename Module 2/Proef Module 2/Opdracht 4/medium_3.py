@@ -8,24 +8,23 @@ robotArm = RobotArm(challenges[3],0)
 
 # your code starts here:
 
-position = robotArm.stackIndex()
+color = 'white'
+empty = robotArm.stackEmpty()
 
-while position < 9:
-    empty = robotArm.stackEmpty()
+for i in range(9):
+    robotArm.moveRight()
 
+for i in range(9):
     if not empty:
+        robotArm.moveLeft()
         robotArm.grab()
-        color = robotArm.scan()
-        if color == 'white':
+        colorScan = robotArm.scan()
+        if colorScan == color:
             robotArm.moveRight()
             robotArm.drop()
-            robotArm.moveRight()
+            robotArm.moveLeft()
         else:
             robotArm.drop()
-            robotArm.moveRight()
-    else:
-        robotArm.moveRight()
-    position = robotArm.stackIndex()
 
 # report the results of the mission
 robotArm.report()

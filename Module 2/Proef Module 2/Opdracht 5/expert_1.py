@@ -7,55 +7,18 @@ from challenges.expert import challenges
 robotArm = RobotArm(challenges[1],0)
 
 # your code starts here:
-empty = robotArm.stackEmpty()
 
-robotArm.grab()
-for i in range(5):
-    robotArm.moveRight()
-robotArm.drop()
-
-for i in range(4):
-    robotArm.moveLeft()
-
-while True:
-    empty = robotArm.stackEmpty()
-    if not empty:
+for blocks in range(1, 5):
+    for i in range(blocks):  
         robotArm.grab()
         for i in range(5):
             robotArm.moveRight()
         robotArm.drop()
         for i in range(5):
             robotArm.moveLeft()
-    else: 
-        break
 
-robotArm.moveRight()
-
-while True:
-    empty = robotArm.stackEmpty()
-    if not empty:
-        robotArm.grab()
-        for i in range(5):
-            robotArm.moveRight()
-        robotArm.drop()
-        for i in range(5):
-            robotArm.moveLeft()
-    else:
-        break
-
-robotArm.moveRight()
-
-while True:
-    empty = robotArm.stackEmpty()
-    if not empty:
-        robotArm.grab()
-        for i in range(5):
-            robotArm.moveRight()
-        robotArm.drop()
-        for i in range(5):
-            robotArm.moveLeft()
-    else:
-        break
+    if blocks < 4:
+        robotArm.moveRight()
 
 # report the results of the mission
 robotArm.report()
