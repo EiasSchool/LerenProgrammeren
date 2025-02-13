@@ -1,0 +1,21 @@
+1. Begin
+2. Stel de score en rondeteller in
+3. Kies een willekeurig getal tussen 1 en 1000
+4. Zolang de rondeteller minder dan 20 is:
+    5. Stel de beurtenteller in
+    6. Zolang de beurtenteller minder dan 10 is:
+        7. Lees de gok van de speler
+        8. Als de gok correct is:
+            9. Print "Geraden!"
+            10. Verhoog de score, einde ronde
+        11. Anders:
+            12. Geef feedback (hoger/lager, warm/heel warm)
+        13. Verhoog de beurtenteller
+    14. Ronde voorbij
+    15. Toon score tot nu toe
+    16. Vraag of de speler wil doorgaan
+    17. Als de speler niet wil doorgaan:
+        18. Breek de hoofdlus
+    19. Verhoog de rondeteller
+20. Einde spel, toon eindscore
+21. Einde
