@@ -1,33 +1,27 @@
-BEGIN
-  Initialiseer een lege lijst voor namen
-  WHILE aantal namen in de lijst is minder dan 3 DO
-    Vraag om een nieuwe naam
-    IF de naam is uniek THEN
-      Voeg de naam toe aan de lijst
-    ENDIF
-  ENDWHILE
+Begin
+    Maak een lege lijst voor namen
 
-  WHILE aantal namen in de lijst is 3 of meer DO
-    Vraag of gebruiker nog een naam wil toevoegen of wil beginnen met loten
-    IF gebruiker wil een naam toevoegen THEN
-      Vraag om een nieuwe naam
-      IF de naam is uniek THEN
-        Voeg de naam toe aan de lijst
-      ENDIF
-    ELSE
-      Breek uit de lus
-    ENDIF
-  ENDWHILE
+    Zolang er minder dan 3 namen in de lijst zijn:
+        Vraag om een naam
+        Als de naam nog niet in de lijst staat:
+            Voeg de naam toe aan de lijst
+        Anders:
+            Zeg: "Deze naam bestaat al, probeer een andere naam."
 
-  Initialiseer een lege lijst voor lootjes
-  FOR elke naam in de lijst DO
-    Kies een willekeurige naam voor lootje
-    WHILE lootje is hetzelfde als de naam of lootje is al gekozen DO
-      Kies een andere willekeurige naam
-    ENDWHILE
-    Voeg het lootje toe aan de lijst van lootjes
-  ENDFOR
+    Vraag: "Wil je nog een naam toevoegen? (ja/nee)"
+    Zolang het antwoord "ja" is:
+        Vraag om een naam
+        Als de naam nog niet in de lijst staat:
+            Voeg de naam toe aan de lijst
+        Anders:
+            Zeg: "Deze naam bestaat al, probeer een andere naam."
+        Vraag opnieuw: "Wil je nog een naam toevoegen? (ja/nee)"
 
-  Print de lijst van namen en hun toegewezen lootjes
+    Maak een kopie van de namenlijst voor lootjes
+    Zorg dat iedereen een lootje krijgt, maar niet hun eigen naam:
+        Schud de lootjes
+        Als iemand zichzelf heeft:
+            Schud de lootjes opnieuw
 
-END
+    Print de lijst met namen en hun lootjes
+Einde
