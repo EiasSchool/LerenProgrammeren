@@ -1,0 +1,33 @@
+BEGIN
+  Initialiseer een lege lijst voor namen
+  WHILE aantal namen in de lijst is minder dan 3 DO
+    Vraag om een nieuwe naam
+    IF de naam is uniek THEN
+      Voeg de naam toe aan de lijst
+    ENDIF
+  ENDWHILE
+
+  WHILE aantal namen in de lijst is 3 of meer DO
+    Vraag of gebruiker nog een naam wil toevoegen of wil beginnen met loten
+    IF gebruiker wil een naam toevoegen THEN
+      Vraag om een nieuwe naam
+      IF de naam is uniek THEN
+        Voeg de naam toe aan de lijst
+      ENDIF
+    ELSE
+      Breek uit de lus
+    ENDIF
+  ENDWHILE
+
+  Initialiseer een lege lijst voor lootjes
+  FOR elke naam in de lijst DO
+    Kies een willekeurige naam voor lootje
+    WHILE lootje is hetzelfde als de naam of lootje is al gekozen DO
+      Kies een andere willekeurige naam
+    ENDWHILE
+    Voeg het lootje toe aan de lijst van lootjes
+  ENDFOR
+
+  Print de lijst van namen en hun toegewezen lootjes
+
+END
