@@ -1,4 +1,6 @@
 import random
+import os
+from time import sleep
 
 namen = []
 
@@ -41,12 +43,19 @@ for i in range(len(namen)):
 
 print("De lootjes zijn getrokken je kunt nu een naam opgeven om te vragen wie ze hebben\n")
 
+foundNames = []
+
 while True:
     findName = input("Welke naam wil je opzoeken type stop om te stoppen\n").strip().lower()
+    sleep(2)
     if findName == 'stop':
         print("Het programma wordt afgesloten")
         break
+    elif findName in foundNames:
+        os.system('clear')
+        print(f"De naam {findName.capitalize()} is al opgezocht")
     elif findName in results:
         print(f"{findName.capitalize()} heeft {results[findName].capitalize()} getrokken")
+        foundNames.append(findName)
     else:
         print("Deze naam is niet gevonden Probeer het opnieuw")
