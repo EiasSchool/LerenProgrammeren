@@ -35,8 +35,16 @@ while True:
     if not zelfgetrokken:
         break
 
-# while any(namen[i] == lootjes[i] for i in range(len(namen))):
-#     random.shuffle(lootjes)
+results = dict(zip(namen, lootjes))
 
-for i in range(len(namen)):
-    print(f"{namen[i]} heeft {lootjes[i]} getrokken.")
+print("\nDe lootjes zijn getrokken! Wie wie heeft, blijft geheim. Je kunt nu een naam opgeven om te vragen wie ze hebben.")
+
+while True:
+    findName = input("\nWelke naam wil je opzoeken? (type 'stop' om te stoppen): ").strip()
+    if findName.lower() == 'stop':
+        print("Het programma wordt afgesloten.")
+        break
+    elif findName in results:
+        print(f"{findName} heeft {results[findName]} getrokken.")
+    else:
+        print("Deze naam is niet gevonden. Probeer het opnieuw.")
