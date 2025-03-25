@@ -1,4 +1,4 @@
-from functions import addition, subtraction, multiplication, division
+from calculations import CALCULATIONS
 
 choices = {
     "A": "getallen optellen",
@@ -48,21 +48,21 @@ while True:
         continue
     
     if answer == "A":
-        total = addition(n1, n2)
+        total = CALCULATIONS['addition'](n1, n2)
     elif answer == "B":
-        total = subtraction(n1, n2)
+        total = CALCULATIONS['subtraction'](n1, n2)
     elif answer == "C":
-        total = multiplication(n1, n2)
+        total = CALCULATIONS['multiplication'](n1, n2)
     elif answer == "D":
-        total = division(n1, n2)
+        total = CALCULATIONS['division'](n1, n2)
     elif answer == "E":
-        total = addition(n1, 1)
+        total = CALCULATIONS['addition'](n1, 1)
     elif answer == "F":
-        total = subtraction(n1, 1)
+        total = CALCULATIONS['subtraction'](n1, 1)
     elif answer == "G":
-        total = multiplication(n1, 2)
+        total = CALCULATIONS['multiplication'](n1, 2)
     elif answer == "H":
-        total = division(n1, 2)
+        total = CALCULATIONS['division'](n1, 2)
     
     print(f"Uitkomst: {total}")
     
