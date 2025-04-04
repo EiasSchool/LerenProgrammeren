@@ -1,5 +1,5 @@
 #constants
-JOURNEY_IN_DAYS = 10
+JOURNEY_IN_DAYS = 11
 
 #data
 mainCharacter = {

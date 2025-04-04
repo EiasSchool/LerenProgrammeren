@@ -9,7 +9,7 @@ from data import JOURNEY_IN_DAYS
 
 expected = True
 
-if JOURNEY_IN_DAYS == 10:
+if JOURNEY_IN_DAYS == 11:
     resault = True
 
 test('Journey in days - test', expected, resault)
